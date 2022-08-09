@@ -1,0 +1,300 @@
+@import "_reset.scss";
+@import "_variables.scss";
+.nav_row{
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 20px;
+    padding-inline: 10px;
+    .nav_logo{
+        font-size: 24px;
+        font-family: $main-ff;
+        font-weight: $main-fw;
+    }
+    .nav_icons{
+        height: 40px;
+    }
+    .icons_row{
+        height: 100%;
+        column-gap: 20px;
+        align-items: center;
+        padding-inline-end: 40px;
+        .nav_icon{
+            width: 15px;
+            height: auto;
+        }
+        .burger_icon{
+            height: auto;
+            i{
+                font-size: 30px;
+            }
+            @include media (laptop){
+                visibility: hidden;
+                position: absolute;
+            }
+        }
+    }
+}
+.nav_menu{
+    position: absolute;
+    @include media (laptop){
+        position: static;
+    }
+}
+.links_menu{
+    visibility: hidden;
+    @include media (laptop){
+        visibility: visible;
+        column-gap: 20px;
+    }
+    & li{
+        font-size: 10px;
+        @include media (laptop){
+            font-size: 1rem;
+        }
+        &:hover{
+            font-weight: $main-fw;
+        }
+    }
+}
+// .main{
+//     width: 100%;
+//  position: relative;
+// }
+.summer_sale{
+    margin-bottom: 70px;
+}
+.summer_sale-row{
+    width: 100%;
+    height: auto;
+    background:url(../img/bg.jpg) 50% 20%/140% no-repeat;
+    position: relative;
+    .sale_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .sale_title{
+            text-align: center;
+            h3{
+                padding-block: 30px 20px;
+                font-size: 25px;
+                font-family: $main-ff;
+                 font-weight: semiBold;
+            }
+        }
+        .discount_percentages
+        {
+            height: 170px;
+            justify-content: center;
+            .left_block{
+                align-items: flex-start;
+                height: 100%;
+                width: 15%;
+
+            }
+            .centred_block{
+                height: 100%;
+                align-items: flex-start;
+                width: 200px;
+                @include media (laptop){
+                    width: 70%;
+                }
+                & img{
+                    height: 100%;
+                }
+            }
+            .right_block{
+                align-items: flex-end;
+                width: 15%;
+            }
+        }
+    }
+    .dancing_persons{
+        visibility: hidden;
+        position: absolute;
+        max-width: 900px;
+        height: 400px;
+        @include media (laptop) {
+            position: static;
+            margin: auto;
+        }
+        & img{
+            visibility: hidden;
+            
+            @include media (laptop) {
+                visibility: visible;
+            }
+        }
+    }
+    .blue_sticker, .pinky_sticker{
+        position: absolute;
+        display: flex;
+        width: 170px;
+        height: 230px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 20px;
+        visibility: hidden;
+        position: absolute;
+        & right_arrow{
+            width: 60px;
+            height: 20px;   
+        }
+        & a{
+            font-family: $main-ff;
+            font-size: 18px;
+            font-weight: $main-fw;
+            text-transform: uppercase;
+        }
+    }
+    .blue_sticker{
+        @include media (desktop){
+            visibility: visible;
+            left: 100%;
+            transform: translate(-50%, 0);
+            top: 12%;
+            right: 0;
+            top: 0;
+            background-color: rgba(158, 152, 220, 1);
+        }
+    }
+    .pinky_sticker{
+        @include media (desktop){
+            visibility: visible;
+            left: 105%;
+            top: 45%;
+            transform: translate(20%, 0);
+
+            background-color: rgba(255, 143, 230, 1);
+        }
+        & p{
+            width: 30px;
+        }
+    }
+}  
+
+.shop_row{
+    padding-bottom: 100px;
+    position: relative;
+    .side_menu{
+        position: static;
+        width: 100%;
+        background-color: rgba(239, 238, 246, 1);
+        margin-bottom: 30px;
+        text-align: center;
+        @include media (desktop){
+            width: 430px;
+            position: absolute;
+            left: -10%;
+            top: -3%;
+            text-align: left;
+            padding-inline-start: 100px;
+            padding-block: 20px;
+
+        }
+        .side_menu_list ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr ;
+            grid-auto-rows: 40px;
+            @include media (desktop){
+            grid-template-columns: 1fr;
+            }
+        }
+        .side_menu_list ul li a{
+            @include book-info ($main-ff, 12px, medium, rgba(92, 106, 121, 1));
+            &:hover{
+                font-weight: 700;
+                font-size: 16px;
+                padding-left: 10px;
+            }
+        }
+    }
+    .shop_content{
+        grid-template-columns: 1fr;
+        position: static;
+        padding: 10px;
+        @include media (laptop){
+            grid-template-columns: repeat(2, 6fr);
+        }
+        @include media (desktop){
+            position: absolute;
+            left: 15%;
+            top: 5%;
+            gap: 10px;
+        }
+        .book_card{
+            height: 300px;
+            column-gap: 10px;
+            justify-content: center;
+            .img_content{
+                width: 200px;
+                height: auto;
+                & img{
+                    height: 300px;
+                    object-fit: cover;
+                }
+            }
+            .perscription_content{
+                display: flex;
+                flex-basis: 200px;
+                flex-direction: column;
+                margin-top: 20px;
+                .author_name{
+                    @include book-info( $bookPerscription-ff, 10px, normal, rgba(92, 106, 121, 1));
+                }
+                .books_name{
+                    margin-block: 7px;
+                    @include book-info ($main-ff, 16px, $main-fw, rgba(28, 42, 57, 1))
+                }
+                .books_rating{
+                    align-items: center;
+                    column-gap: 10px;
+                }
+                .stars_quantity{
+                    column-gap: 5px;
+                    & img{
+                        width: 13px;
+                        height: 13px;
+                        object-fit: cover;
+                    }
+                }
+                .views_quantity{
+                    & span{
+                        @include book-info($bookPerscription-ff, 10px, normal, rgba(92, 106, 121, 1))
+                    }
+                }
+                .about_book_info{
+                    @include book-info ($bookPerscription-ff, 10px, normal, rgba(92, 106, 121, 1));
+                    text-transform: capitalize;
+                    margin-block: 16px;
+                }
+                .button{
+                    text-align: center;
+                    & a{
+                       @include book-info ($main-ff, 8px, $main-fw, rgba(76, 61, 178, 1));
+                       display: inline-block;
+                       width: 100%;
+                       height:100%  ;
+                    }
+                }
+            }
+            .book_price{
+                margin-bottom: 10px;
+                & span{
+                    margin-right: 10px;
+                }
+                .actual_price{
+                    @include book-info ($main-ff, 1rem, bold, black)
+                }
+                .old_price{
+                    @include book-info ($main-ff, 1rem, bold, rgba(189, 189, 189, 1));
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+}
+
+
+     

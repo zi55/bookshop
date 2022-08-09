@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Open+Sans&display=swap');
+$main-fw: bold;
+$bookTitle-fz: 1rem;
+$main-ff:'Montserrat', sans-serif;
+$bookPerscription-ff: 'Open Sans', sans-serif;
+
+
+$tablet: 576px;
+$laptop: 768px;
+$desktop: 992px;
+$desktop: 1200px;
+$large-desktop: 1400px;
+
+
+
+@mixin book-info ($ff, $fz, $fw, $clr){
+    font-family: $ff;
+    font-size: $fz;
+    font-weight: $fw;
+    color: $clr;
+}
+
+
+
+@mixin media ($media: small){
+    @if $media == tablet{
+        @media screen and (min-width: $tablet){
+            @content;
+        }
+    }
+    @else if $media == laptop{
+        @media screen and (min-width: $laptop){
+           @content;
+        }
+    }
+    @else if $media == desktop{
+        @media screen and (min-width: $desktop){
+            @content;
+        }
+    }
+    @else{
+        @media screen and (max-width: $tablet){
+            @content; 
+        }
+    }
+}
+
+
+
+.section_container{
+    max-width: 1120px;
+    margin: 0 auto; 
+}
+.ds-flex{
+    display: flex;
+}
+.ds-grid{
+    display: grid;
+}
+.btn{
+    padding:15px 0px;
+    border: 1px solid rgba(76, 61, 178, 1);
+}
